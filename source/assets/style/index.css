@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+#logo{
+    position: absolute;
+    left: 35px;
+    top: 75px;
+}
+body{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.admin_login{
+    width: 100%;
+    height: 100%;
+    background: rgb(114, 4, 24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.admin_login h2{
+    margin-bottom: 18px;
+    font-size: 44px;
+}
+.admin_login input{
+    border: 1px solid rgb(206, 206, 206);
+    padding: 18px+52px;
+    font-family: Crimson Text;
+    font-size: 19px;
+    width: 100%;
+    margin-bottom: 34px;
+}
+.admin_login button{
+    margin-top: 50.5px;
+    font-family: Crimson Text;
+    font-size: 19px;
+    padding: 22px+252px;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 5px;
+    background: rgb(225, 106, 0);
+    color: white;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.admin_login p{
+    color: red;
+}
+.admin_login div{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 69px+54.5px+34px;
+    text-align: center;
+}
+
+
+
+
+
+.admin_panel{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.admin_panel nav{
+    background: rgb(114, 4, 24);
+    padding: 93.3px+35px;
+}
+.admin_panel nav ul{
+    list-style-type: none;
+    color: white;
+}
+.admin_panel nav li{
+    margin-top: 34px;
+}
+.admin_panel nav a{
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.admin_panel nav a img{
+    margin-right: 13px;
+
+}
+
+
+.admin_panel{
+    display: none;
+}
+/* .admin_login{
+    display: none;
+} */

@@ -1,0 +1,26 @@
+@media screen and (max-width:426px){
+    .admin_login{
+        width: 72%;
+        padding: 27px+18.55px+50px;
+        
+    }
+    .admin_login h2{
+        font-size: 20px;
+    }
+    #logo{
+        top: 11px;
+        left: 15px;
+        height: 54px;
+    }
+    .admin_login button{
+        width: 100%;
+        padding: 7px+0px;
+        font-size: 18px;
+    }
+    .admin_login input{
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 22px;
+        
+    }
+}
