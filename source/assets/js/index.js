@@ -105,6 +105,7 @@ async function book_add(e) {
                 type:document.getElementById('book_type').value
             })
             console.log(`Document written with ID:${data.id}`);
+            books_table_reload()
             
         } catch (error) {
             console.error();
