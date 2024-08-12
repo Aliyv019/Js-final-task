@@ -1,8 +1,7 @@
 @media screen and (max-width:426px){
     .admin_login{
-        width: 72%;
+        width: 100%;
         padding: 27px+18.55px+50px;
-        
     }
     .admin_login h2{
         font-size: 20px;
@@ -22,5 +21,22 @@
         width: 100%;
         margin-bottom: 22px;
         
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 11px;
+        padding-bottom: 36px;
+    }
+    .admin_panel_right{
+        padding-top: 0;
+    }
+    form{
+        /* justify-self: center; */
+        width: 100%;
+    }
+    .admin_panel nav{
+        display: none;
     }
 }
