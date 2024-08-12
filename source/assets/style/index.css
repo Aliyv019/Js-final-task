@@ -253,9 +253,9 @@ table tr td img{
     margin-bottom: 440px;
 }
 
-/* .admin_panel{
-    display: none;
-} */
-.admin_login{
+.admin_panel{
     display: none;
 }
+/* .admin_login{
+    display: none;
+} */
