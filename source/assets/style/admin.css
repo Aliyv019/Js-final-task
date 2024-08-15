@@ -259,6 +259,14 @@ table tr td img{
 .books{
     margin-bottom: 300px;
 }
+.books_table{
+    height: 480px;
+    overflow-y: scroll;
+}
+.books_table::-webkit-scrollbar{
+    display: none;
+}
+
 
 .contact_us{
     margin-bottom: 440px;

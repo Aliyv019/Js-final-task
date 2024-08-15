@@ -106,7 +106,11 @@ async function book_add(e) {
             })
             console.log(`Document written with ID:${data.id}`);
             books_table_reload()
-            
+            document.getElementById('book_type').value=""
+            document.getElementById('book_desc').value=""
+            document.getElementById('book_image').value=""
+            document.getElementById('author_name').value=""
+            document.getElementById('book_name').value=""
         } catch (error) {
             console.error();
             
@@ -128,7 +132,9 @@ async function aboutChange(e){
             description:document.getElementById('store_desc').value
         },{ merge: true })
         console.log("Store about was updated");
-        
+        document.getElementById('store_title').value=""
+        document.getElementById('store_image_url').value=""
+        document.getElementById('store_desc').value=""
     } catch (error) {
         console.error();
         
@@ -192,3 +198,32 @@ document.querySelector('#menu_exit_btn').addEventListener('click',()=>{
     document.querySelector('nav').style.left="-100%"
     document.querySelector('.responsive_nav_background').style.right="100%"
 })
+
+const join_us_table=document.querySelector('.join_us_table')
+
+async function join_us_table_func() {
+    join_us_table.innerHTML=`
+    <tr class="table_head">
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Email Address</th>
+                        </tr>`
+    try {
+        const response=await getDocs(collection(db,"foruser"))
+        let counter=1
+        response.forEach((user)=>{
+            const table_row=document.createElement('tr')
+            table_row.innerHTML=`<tr>
+                                <td>${counter}</td>
+                                <td>${user.data().fullname}</td>
+                                <td>${user.data().email}</td>
+                            </tr>`
+            join_us_table.appendChild(table_row)
+            counter++
+        })
+    } catch (error) {
+        console.error();
+        
+    }
+}
+join_us_table_func()

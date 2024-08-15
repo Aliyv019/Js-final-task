@@ -1,4 +1,4 @@
-import {db,collection,addDoc} from "./firebase.js"
+import {db,collection,addDoc,getDocs} from "./firebase.js"
 const join_us_btn=document.querySelector('header button')
 join_us_btn.addEventListener('click',()=>{
     const modal=document.querySelector('.join_us_modal')
@@ -30,3 +30,33 @@ async function join_us(fullname,email) {
         
     }
 }
+
+
+async function about_store_data() {
+    try {
+        const response=await getDocs(collection(db,"about"))
+        response.forEach((doc) => {
+            const data=doc.data();
+            document.querySelector('.about_text h2').textContent=data.title
+            document.querySelector('.about_text p').textContent=data.description
+            document.querySelector('.about_store img').src=data.imageLink
+        });
+    } catch (error) {
+        console.error();
+        
+    }
+}
+// async function about_store_data() {
+//     try {
+//         const response = await getDocs(collection(db, "about"));
+//         response.forEach((doc) => {
+//             console.log(`${doc.id} => ${doc.data()}`);
+//         });
+//     } catch (error) {
+//         console.error("Error fetching documents: ", error);
+//     }
+// }
+about_store_data()
+
+
+
