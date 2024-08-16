@@ -173,6 +173,7 @@ button{
 
 /*adding css to catalog*/
 .book_catalog{
+    margin-top: 130px;
     width: 80%;
 }
 .book_catalog h3{
@@ -185,11 +186,12 @@ button{
     line-height: 196.19%;
     letter-spacing: 0%;
 }
-.all_books{
+.books{
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     width: 100%;
+    margin-bottom: 130px;
 }
 
 /*adding css to carousel*/

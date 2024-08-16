@@ -109,7 +109,7 @@ async function book_add(e) {
                 imagelink:document.getElementById('book_image').value,
                 description:document.getElementById('book_desc').value,
                 type:document.getElementById('book_type').value,
-                new:document.getElementById('book_newrelease').checked
+                new:document.getElementById('book_newrelease').checked?true:false
             })
             console.log(`Document written with ID:${data.id}`);
             books_table_reload()
