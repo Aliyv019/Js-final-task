@@ -58,7 +58,7 @@ async function book_search(title) {
     try {
         const response=await fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}&maxResults=40&key=${api_key}`)
         const data=await response.json()
-        console.log(data);
+        // console.log(data);
         for(let i of data.items){
             const ListItem=document.createElement('li')
             ListItem.innerHTML=`<h5>${i.volumeInfo.title}</h5>`
@@ -75,11 +75,17 @@ async function book_search(title) {
 
 //adding data to input fields
 function book_form_data(item){
+    console.log(item);
+    ;
+    
     document.getElementById('book_name').value=item.volumeInfo.title
     document.getElementById('author_name').value = item.volumeInfo.authors ? [...item.volumeInfo.authors].join(", ") : ""
     document.getElementById('book_image').value=item.volumeInfo.imageLinks.thumbnail? item.volumeInfo.imageLinks.thumbnail:""
     document.getElementById('book_desc').value=item.volumeInfo.description?item.volumeInfo.description:""
     document.getElementById('book_type').value=item.volumeInfo.categories?[...item.volumeInfo.categories].join(", "):""
+    document.getElementById('book_newrelease').checked=item.volumeInfo.publishedDate.slice(0,4)>=2020?true:false
+    
+    
 }
 
 //adding book data to firestore
@@ -102,7 +108,8 @@ async function book_add(e) {
                 authors:document.getElementById('author_name').value,
                 imagelink:document.getElementById('book_image').value,
                 description:document.getElementById('book_desc').value,
-                type:document.getElementById('book_type').value
+                type:document.getElementById('book_type').value,
+                new:document.getElementById('book_newrelease').checked
             })
             console.log(`Document written with ID:${data.id}`);
             books_table_reload()
@@ -111,6 +118,7 @@ async function book_add(e) {
             document.getElementById('book_image').value=""
             document.getElementById('author_name').value=""
             document.getElementById('book_name').value=""
+            document.getElementById('book_newrelease').value=""
         } catch (error) {
             console.error();
             
@@ -161,7 +169,7 @@ async function books_table_reload() {
         let counter=1
         response.forEach(element=>{
             const table_row=document.createElement('tr')
-            console.log("asd");
+            // console.log("asd");
             
             const book=element.data()
             table_row.innerHTML=`
@@ -177,7 +185,7 @@ async function books_table_reload() {
                                 <td>${book.authors}</td>
             `
             books_table.appendChild(table_row)
-            console.log(book.title);
+            // console.log(book.title);
             counter++
         })
     } catch (error) {

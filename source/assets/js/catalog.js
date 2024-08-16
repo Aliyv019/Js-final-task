@@ -1,4 +1,4 @@
-import {db,collection,addDoc} from "./firebase.js"
+import {db,collection,addDoc, doc} from "./firebase.js"
 const join_us_btn=document.querySelector('header button')
 join_us_btn.addEventListener('click',()=>{
     const modal=document.querySelector('.join_us_modal')
@@ -30,3 +30,23 @@ async function join_us(fullname,email) {
         
     }
 }
+
+//adding functionality to carousel
+document.addEventListener('DOMContentLoaded',()=>{
+    const catalog=document.querySelector('.book_catalog')
+console.log(catalog);
+let margin=0
+
+for(let i=0;i<3;i++){
+    const carousel_inner=catalog.querySelectorAll('.carousel_inner')[i]
+    const carousel_card=carousel_inner.querySelector('.carousel_card')
+    catalog.querySelectorAll('.carousel_left')[i].addEventListener('click',()=>{
+        margin=margin<1190?margin+=238:1190
+        carousel_card.style.marginLeft=`-${margin}px`
+    })
+    catalog.querySelectorAll('.carousel_right')[i].addEventListener('click',()=>{
+        margin=margin>0?margin-=238:0
+        carousel_card.style.marginLeft=`-${margin}px`
+    })
+}
+})
