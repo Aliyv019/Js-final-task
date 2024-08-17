@@ -202,9 +202,13 @@ button{
 }
 .carousel_inner{
     display: flex;
-    overflow-x: hidden;
+    overflow-x: scroll;
     padding: 30px;
     padding-right: 0;
+    scroll-behavior:smooth;
+}
+.carousel_inner::-webkit-scrollbar{
+    display: none;
 }
 .carousel_left{
     background: none;
@@ -224,7 +228,7 @@ button{
     flex-direction: column;
     align-items: center;
     margin-right: 66px;
-    transition:ease 2s;
+    justify-content: space-between;
 }
 .carousel_card p{
     position: absolute;
@@ -265,4 +269,77 @@ button{
     border: none;
     padding: 10px+0;
     width: 100%;
+}
+
+/*adding style to book info*/
+#button_back{
+    border-radius: 3px;
+    box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
+    background: rgb(225, 106, 0);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 196.19%;
+    letter-spacing: 0%;
+    border: none;
+    text-align: start;
+    padding: 0px+13px;
+    width: 100px;
+    margin-bottom: 80px;
+}
+.book_info_left p{
+    border-radius: 3px;
+    box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
+    background: rgb(47, 128, 237);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 196.19%;
+    letter-spacing: 0%;
+    color: white;
+    text-align: center;
+    padding: 0px+20px;
+    width: fit-content;
+}
+.book_info_left h2{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 196.19%;
+    letter-spacing: 0%;
+    color: rgb(36, 20, 0);
+}
+.book_info_left h3{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 196.19%;
+    letter-spacing: 0%;
+    color: rgb(36, 20, 0);
+}
+.book_info_left span{
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 196.19%;
+    letter-spacing: 0%;
+    max-width: 700px;
+    color: rgb(36, 20, 0);
+}
+.book_info{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 180px;
+}
+.book_info img{
+    width: 20%;
+    height: fit-content;
+    margin-top: 150px;
+}
+
+
+
+
+
+
+.book_info{
+    display: none;
 }

@@ -277,6 +277,11 @@ table tr td img{
 #menu_exit_btn{
     display: none;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 /* .admin_panel{
     display: none;

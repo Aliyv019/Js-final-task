@@ -84,7 +84,7 @@ function book_form_data(item){
     document.getElementById('book_desc').value=item.volumeInfo.description?item.volumeInfo.description:""
     document.getElementById('book_type').value=item.volumeInfo.categories?[...item.volumeInfo.categories].join(", "):""
     document.getElementById('book_newrelease').checked=item.volumeInfo.publishedDate.slice(0,4)>=2020?true:false
-    
+    document.getElementById('book_year').value=item.volumeInfo.publishedDate?item.volumeInfo.publishedDate.slice(0,4):""
     
 }
 
@@ -109,6 +109,7 @@ async function book_add(e) {
                 imagelink:document.getElementById('book_image').value,
                 description:document.getElementById('book_desc').value,
                 type:document.getElementById('book_type').value,
+                year:document.getElementById('book_year').value,
                 new:document.getElementById('book_newrelease').checked?true:false
             })
             console.log(`Document written with ID:${data.id}`);
@@ -119,6 +120,8 @@ async function book_add(e) {
             document.getElementById('author_name').value=""
             document.getElementById('book_name').value=""
             document.getElementById('book_newrelease').value=""
+            document.getElementById('book_type').value=""
+            document.getElementById('book_year').value=""
         } catch (error) {
             console.error();
             
