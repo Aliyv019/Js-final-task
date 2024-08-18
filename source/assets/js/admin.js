@@ -216,7 +216,7 @@ const join_us_table=document.querySelector('.join_us_table')
 
 async function join_us_table_func() {
     join_us_table.innerHTML=`
-    <tr class="table_head">
+                        <tr class="table_head">
                             <th>#</th>
                             <th>Full Name</th>
                             <th>Email Address</th>
@@ -243,3 +243,39 @@ join_us_table_func()
 
 //adding contact us data to table
 const contact_us_table=document.querySelector('.web_table_contact')
+
+async function contact_table() {
+    contact_us_table.innerHTML=`
+                        <tr class="table_head">
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>Email Address</th>
+                            <th>Phone Number</th>
+                        </tr>
+    `
+    try {
+        const response=await getDocs(collection(db,"contacts"))
+        let counter=1
+        response.forEach(contact_data=>{
+            const contact=contact_data.data()
+            const table_row=document.createElement('tr')
+            
+            table_row.innerHTML=`<tr>
+                                <td>${counter}</td>
+                                <td>${contact.name}</td>
+                                <td>${contact.address}</td>
+                                <td>${contact.email}</td>
+                                <td>${contact.phone}</td>
+                            </tr>`
+            contact_us_table.appendChild(table_row)
+            counter++
+            console.log("salam");
+            
+        })
+    } catch (error) {
+        console.error();
+        
+    }
+}
+contact_table()
