@@ -34,6 +34,7 @@ async function join_us(fullname,email) {
 
 //adding books to catalog from firestore
 async function books2catalog() {
+    comment_get()
     try {
         const response=await getDocs(collection(db,"books"))
         let book_array_length=0
@@ -127,11 +128,49 @@ function books_info(data){
     document.querySelector('.book_info_left h2').textContent=data.title
     document.querySelector('.book_info_left h3').textContent=data.authors
     document.querySelector('.book_info_left span').textContent=data.description
-    document.querySelector('.book_info img').src=data.imagelink
+    document.querySelector('#book_thumbnail').src=data.imagelink
     document.querySelector('#button_back').addEventListener('click',()=>{
         document.querySelector('.book_info').style.display="none"
         document.querySelector('.book_catalog').style.display="block"
         console.log("salam");
         
     })
+}
+
+//adding anonim comments
+const comments=document.querySelector('.book_info form')
+
+comments.addEventListener('submit',(e)=>{comment_add(e)})
+async function comment_add(e) {
+    e.preventDefault()
+    const input=document.querySelector('#comment_input')
+    try {
+        addDoc(collection(db,'comments'),{
+            comment:input.value.trim()
+        })
+        input.value=""
+        comment_get()
+    } catch (error) {
+        console.error();
+        
+    }
+}
+async function comment_get() {
+    const comment_list=document.querySelector('.book_info_left ul')
+    comment_list.innerHTML=""
+    try {
+        const response=await getDocs(collection(db,'comments'))
+        response.forEach((data)=>{
+            const comment=data.data()
+            const listitem=document.createElement('li')
+            listitem.innerHTML=`
+                <h4>anonim</h4>
+                <h5>${comment.comment}</h5>
+            `
+            comment_list.appendChild(listitem)
+        })
+    } catch (error) {
+        console.error();
+        
+    }
 }

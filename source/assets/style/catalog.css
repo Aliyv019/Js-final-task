@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Preahvihear&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Preahvihear&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -287,6 +288,9 @@ button{
     width: 100px;
     margin-bottom: 80px;
 }
+.book_info_left{
+    width: 50%;
+}
 .book_info_left p{
     border-radius: 3px;
     box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
@@ -320,8 +324,8 @@ button{
     font-weight: 400;
     line-height: 196.19%;
     letter-spacing: 0%;
-    max-width: 700px;
     color: rgb(36, 20, 0);
+    margin-bottom: 122px;
 }
 .book_info{
     display: flex;
@@ -329,15 +333,74 @@ button{
     width: 80%;
     margin-top: 180px;
 }
-.book_info img{
+#book_thumbnail{
     width: 20%;
     height: fit-content;
     margin-top: 150px;
 }
-
-
-
-
+#comment_send_btn{
+    border-radius: 5px;
+    padding: 16px;
+    border: none;
+    background: rgb(225, 106, 0);
+    margin-left: -3px;
+    height: 65px;
+}
+.book_info input{
+    border-radius: 5px+0+0+5px;
+    border: none;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 21px+38px;
+    width: 100%;
+    color: rgb(35, 35, 35);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    outline: none;
+    line-height: 23px;
+    letter-spacing: 5%;
+    margin-bottom: 53px;
+}
+.book_info input::placeholder{
+    color: rgb(35, 35, 35);
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 23px;
+    letter-spacing: 5%;
+}
+.book_info form{
+    display: flex;
+    width: 100%;
+}
+.book_info ul{
+    list-style: none;
+}
+.book_info li{
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgb(255, 255, 255);
+    padding: 30px+18px;
+    width: 100%;
+    margin-bottom: 43px;
+}
+.book_info h4{
+    color: rgb(35, 35, 35);
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0px;
+}
+.book_info h5{
+    color: rgb(35, 35, 35);
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
 
 
 .book_info{
