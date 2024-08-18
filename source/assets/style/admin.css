@@ -283,9 +283,9 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-/* .admin_panel{
-    display: none;
-} */
-.admin_login{
+.admin_panel{
     display: none;
 }
+/* .admin_login{
+    display: none;
+} */
