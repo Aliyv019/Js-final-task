@@ -1,4 +1,4 @@
-import {db,collection,addDoc,getDocs} from "./firebase.js"
+import {db,collection,addDoc} from "./firebase.js"
 const join_us_btn=document.querySelector('header button')
 join_us_btn.addEventListener('click',()=>{
     const modal=document.querySelector('.join_us_modal')
@@ -31,3 +31,32 @@ async function join_us(fullname,email) {
     }
 }
 
+//adding data to firestore
+const contact_form=document.querySelector('.inputs')
+async function to_firestore(){
+    try {
+        await addDoc(collection(db,'contacts'),{
+            name:contact_form.querySelectorAll('input')[0].value,
+            email:contact_form.querySelectorAll('input')[1].value,
+            address:contact_form.querySelectorAll('input')[2].value,
+            phone:contact_form.querySelectorAll('input')[3].value,
+            note:contact_form.querySelector('textarea').value
+        })
+        contact_form.querySelectorAll('input')[0].value=""
+        contact_form.querySelectorAll('input')[1].value=''
+        contact_form.querySelectorAll('input')[2].value=''
+        contact_form.querySelectorAll('input')[3].value=''
+        contact_form.querySelector('textarea').value=''
+        console.log("something ");
+        
+    } catch (error) {
+        console.error();
+        
+    }
+}
+
+//using to_firestore function
+contact_form.addEventListener('submit',(e)=>{
+    to_firestore()
+    e.preventDefault()
+})

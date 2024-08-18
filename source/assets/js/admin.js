@@ -210,6 +210,8 @@ document.querySelector('#menu_exit_btn').addEventListener('click',()=>{
     document.querySelector('.responsive_nav_background').style.right="100%"
 })
 
+
+//adding join us data to table
 const join_us_table=document.querySelector('.join_us_table')
 
 async function join_us_table_func() {
@@ -238,3 +240,6 @@ async function join_us_table_func() {
     }
 }
 join_us_table_func()
+
+//adding contact us data to table
+const contact_us_table=document.querySelector('.web_table_contact')
